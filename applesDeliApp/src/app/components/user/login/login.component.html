@@ -1,1 +1,21 @@
-<p>login works!</p>
+<div class="col-xs-12" *ngIf="!isLoginSuccess">
+  <h5 class="login-error">Login Failed</h5>
+</div>
+<div class="col-xs-12">
+  <form (ngSubmit)="loginSubmit()">
+    <div class="form-group" [formGroup]="loginForm">
+      <label for="username">UserName:</label>
+      <input type="text" class="form-control" id="username" formControlName="username">
+
+      <label for="password">Password:</label>
+      <input type="password" class="form-control" id="password" formControlName="password">
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled]="!loginForm.valid">Login</button>
+  </form>
+</div>
+<hr />
+<div col-xs-12>
+  <button class="btn btn-primary"(click)="onSwitchToRegiter()">New User?</button>
+</div>
+
+<button class="btn btn-danger" (click)="onDevLogin()">Dev login</button>

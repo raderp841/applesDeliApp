@@ -1,0 +1,6 @@
+<div *ngFor="let store of stores">
+  <div class="card bg-info text-white" (click)="onClickStore(store)">
+    <div class="card-body">{{store.name}}</div>
+  </div>
+  <hr />
+</div>

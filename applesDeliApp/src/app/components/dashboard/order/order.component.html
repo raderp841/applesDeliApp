@@ -1,0 +1,90 @@
+<form class="form-group" [formGroup]="orderForm" (ngSubmit)="editForm()">
+  <div class="row">
+    <div class="col-md-6 col-xs-12 col-sm-6">
+      <label for="nameforpickup">Pickup Name:</label>
+      <input type="text" name="nameforpickup" id="nameforpickup" class="form-control" formControlName="nameforpickup" />
+    </div>
+    <div class="col-md-6 col-xs-12 col-sm-6">
+      <label for="pickupdate">Date Pickup:</label>
+      <input type="text" name="pickupdate" id="pickupdate" class="form-control" formControlName="pickupdate" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-xs-12 col-sm-6">
+      <label for="pickuptime">Pickup Time:</label>
+      <input type="text" name="pickuptime" id="pickuptime" class="form-control" formControlName="pickuptime" />
+    </div>
+    <div class="col-md-6 col-xs-12 col-sm-6">
+      <label for="ordereddate">Date Ordered:</label>
+      <input type="text" name="ordereddate" id="ordereddate" class="form-control" formControlName="ordereddate" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-xs-12 col-sm-6">
+      <label for="orderedtime">Ordered Time:</label>
+      <input type="text" name="orderedtime" id="orderedtime" class="form-control" formControlName="orderedtime" />
+    </div>
+    <div class="col-md-6 col-xs-12 col-sm-6">
+      <label for="phonenumber">Phone Number:</label>
+      <input type="text" name="phonenumber" id="phonenumber" class="form-control" formControlName="phonenumber" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-xs-12 col-sm-6">
+      <label for="chickenpcs">Chicken Pieces:</label>
+      <input type="number" name="chickenpcs" id="chickenpcs" class="form-control" formControlName="chickenpcs" />
+    </div>
+    <div class="col-md-6 col-xs-12 col-sm-6">
+      <label for="jojopcs">JoJo Pieces:</label>
+      <input type="number" name="jojopcs" id="jojopcs" class="form-control" formControlName="jojopcs" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-xs-12 col-sm-6">
+      <label for="details">Details:</label>
+      <textarea type="text" name="details" id="details" class="form-control" formControlName="details"></textarea>
+    </div>
+    <div class="col-md-6 col-xs-12 col-sm-6">
+      <label for="isactive">Active:</label>
+      <input type="checkbox" name="isactive" id="isactive" class="form-control" formControlName="isactive" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-xs-12 col-sm-6">
+      <label for="iscancelled">Cancelled:</label>
+      <input type="checkbox" name="iscancelled" id="iscancelled" class="form-control" formControlName="iscancelled" />
+    </div>
+    <div class="col-md-6 col-xs-12 col-sm-6">
+      <label for="iscompleted">Completed:</label>
+      <input type="checkbox" name="iscompleted" id="iscompleted" class="form-control" formControlName="iscompleted" />
+    </div>
+  </div>
+  <hr />
+  <div class="row">
+    <div class="col" *ngIf="orderForm.disabled">
+      <button class="btn btn-primary" (click)="enableEdit()">Edit</button>
+    </div>
+    <div class="col" *ngIf="!orderForm.disabled">
+      <button class="btn btn-success" type="submit">Save</button>|
+    </div>
+    <div class="col" *ngIf="!orderForm.disabled">
+      <button class="btn btn-danger" (click)="disableEdit()">Cancel</button>
+    </div>
+  </div>
+</form>
+
+<!--//id: number;
+    //userId: number;
+    //storeId: number;
+    //orderedDate: string;     x
+    //pickupDate: string;       x
+    //orderedTime: string;      x
+    //pickupTime: string;       x
+    //nameForPickup: string;    x
+    //phoneNumber: string;      x
+    //chickenPcs: number;      x
+    //jojoPcs: number;         x
+    //details: string;
+    //isActive: boolean;
+    //isCancelled: boolean;
+    //isCompleted: boolean;-->

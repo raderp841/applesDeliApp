@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="mx-auto">
+      <app-header class="text-center"></app-header>
+    </div>
+  </div>
+  <div class="row">
+    <div class="mx-auto">
+      <app-login-register *ngIf="isLoginRegister"></app-login-register>
+      <app-dashboard *ngIf="isDashboard"></app-dashboard>
+      <app-order *ngIf="isOrder"></app-order>
+    </div>
+
+  </div>
+
+</div>

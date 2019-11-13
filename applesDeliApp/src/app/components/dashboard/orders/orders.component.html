@@ -1,0 +1,18 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Pickup Name</th>
+      <th scope="col">Pickup Date</th>
+      <th scope="col">Pickup Time</th>
+      <th scope="col">Ordered Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let order of orders" (click)="onOrderClicked(order)">
+      <th scope="row">{{order.nameForPickup}}</th>
+      <td>{{order.pickupDate}}</td>
+      <td>{{order.pickupTime}}</td>
+      <td>{{order.orderedDate}}</td>
+    </tr>
+  </tbody>
+</table>

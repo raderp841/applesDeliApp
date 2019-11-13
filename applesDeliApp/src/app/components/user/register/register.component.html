@@ -1,1 +1,23 @@
-<p>register works!</p>
+
+  <h3>Register</h3>
+<form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+  <div class="form-group">
+    <label for="firstname">First Name:</label>
+    <input type="text" name="firstname" id="firstname" class="form-control" formControlName="firstname" />
+    <label for="lastname">Last Name:</label>
+    <input type="text" name="lastname" id="lastname" class="form-control" formControlName="lastname" />
+    <label for="email">Email:</label>
+    <input type="email" name="email" id="email" class="form-control" formControlName="email" />
+    <label for="emailcheck">Re-Type Email:</label>
+    <input type="email" name="emailcheck" id="emailcheck" class="form-control" formControlName="emailcheck" (keyup)="onCheckEmailMatch()" />
+    <p *ngIf="!isEmailMatch" class="text-danger">Emails do not match</p>
+    <label for="password">Password:</label>
+    <input type="password" name="password" id="password" class="form-control" formControlName="password" />
+    <label for="passwordcheck">Re-Type Password:</label>
+    <input type="password" name="passwordcheck" id="passwordcheck" class="form-control" formControlName="passwordcheck" (keyup)="onCheckPasswordMatch()" />
+    <p *ngIf="!isPassMatch" class="text-danger">Passwords do not match</p>
+  </div>
+  <button type="submit" class="btn btn-primary"[disabled]="!registerForm.valid">Register</button>
+</form>
+<hr />
+<button class="btn btn-primary" (click)="onSwitchToLogin()">Already a User?</button>

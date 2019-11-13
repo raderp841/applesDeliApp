@@ -1,0 +1,9 @@
+
+<div *ngIf="isStoreOrders" class="row">
+  <app-stores class="col-xs-3"></app-stores>
+  <div class="col-xs-2 text-white" >fill</div>
+  <app-orders class="col-xs-7 text-center"></app-orders>
+</div>
+<div *ngIf="isOrderForm">
+  <app-order-form></app-order-form>
+</div>
