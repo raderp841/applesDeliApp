@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 import { Location } from '@angular/common';
 
 @Injectable({
@@ -11,12 +11,16 @@ export class RoutingServiceService {
   isRegister: boolean = false;
   isDashBoard: boolean = false;
   isOrder: boolean = false;
+  isUsers: boolean = false;
+  isUserEdit: boolean = false;
 
   isLoginRegisterSub: Subject<boolean> = new Subject<boolean>();
   isLoginSub: Subject<boolean> = new Subject<boolean>();
   isRegisterSub: Subject<boolean> = new Subject<boolean>();
   isDashBoardSub: Subject<boolean> = new Subject<boolean>();
   isOrderSub: Subject<boolean> = new Subject<boolean>();
+  isUsersSub: Subject<boolean> = new Subject<boolean>();
+  isUserEditSub: Subject<boolean> = new Subject<boolean>();
 
   constructor(private location: Location) { }
 
@@ -26,6 +30,8 @@ export class RoutingServiceService {
     this.isRegister = false;
     this.isDashBoard = false;
     this.isOrder = false;
+    this.isUsers = false;
+    this.isUserEdit = false;
   }
 
   nextAllRouting() {
@@ -34,6 +40,8 @@ export class RoutingServiceService {
     this.isRegisterSub.next(this.isRegister);
     this.isDashBoardSub.next(this.isDashBoard);
     this.isOrderSub.next(this.isOrder);
+    this.isUsersSub.next(this.isUsers);
+    this.isUserEditSub.next(this.isUserEdit);
   }
 
   switchToOrder() {
@@ -75,7 +83,26 @@ export class RoutingServiceService {
 
     this.nextAllRouting();
 
-    this.location.go('/dashboard')
+    this.location.go('/dashboard'); 
   }
 
+  switchToUsers() {
+    this.setAllToFalse();
+
+    this.isUsers = true;
+
+    this.nextAllRouting();
+
+    this.location.go('/users');
+  }
+
+  switchToUserEdit() {
+    this.setAllToFalse();
+
+    this.isUserEdit = true;
+
+    this.nextAllRouting();
+
+    this.location.go('/users/edit');
+  }
 }

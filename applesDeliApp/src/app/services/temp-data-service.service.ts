@@ -11,13 +11,13 @@ import { UserStoreModel } from '../models/user-store-model';
 })
 export class TempDataServiceService {
 
-  tempToken1: TokenModel = new TokenModel(1, 1, 'vienj342fjvma', '11/11/2019', '11/13/2019');
-  tempToken2: TokenModel = new TokenModel(2, 2, 'bja4je3jff8ja', '11/11/2019', '11/13/2019');
-  tempToken3: TokenModel = new TokenModel(3, 3, 'bkmkmvf,ldc44', '11/11/2019', '11/13/2019');
-  tempToken4: TokenModel = new TokenModel(4, 4, 'rie3jff323jgj', '11/11/2019', '11/13/2019');
-  tempToken5: TokenModel = new TokenModel(5, 5, '49j4jvmdfn3n2', '11/11/2019', '11/13/2019');
-  tempToken6: TokenModel = new TokenModel(6, 6, '5ng34ig4o4o43', '11/11/2019', '11/13/2019');
-  tempToken7: TokenModel = new TokenModel(7, 7, '2j3jt4jgngng2', '11/11/2019', '11/13/2019');
+  tempToken1: TokenModel = new TokenModel(1, 1, 'vienj342fjvma', '11/11/2019', new Date('11/15/19'));
+  tempToken2: TokenModel = new TokenModel(2, 2, 'bja4je3jff8ja', '11/11/2019', new Date('11/15/19'));
+  tempToken3: TokenModel = new TokenModel(3, 3, 'bkmkmvf,ldc44', '11/11/2019', new Date('11/15/19'));
+  tempToken4: TokenModel = new TokenModel(4, 4, 'rie3jff323jgj', '11/11/2019', new Date('11/15/19'));
+  tempToken5: TokenModel = new TokenModel(5, 5, '49j4jvmdfn3n2', '11/11/2019', new Date('11/15/19'));
+  tempToken6: TokenModel = new TokenModel(6, 6, '5ng34ig4o4o43', '11/11/2019', new Date('11/15/19'));
+  tempToken7: TokenModel = new TokenModel(7, 7, '2j3jt4jgngng2', '11/11/2019', new Date('11/15/19'));
 
   tempTokes: TokenModel[] = [
     this.tempToken1,
@@ -53,21 +53,21 @@ export class TempDataServiceService {
   ];
 
   orders: OrdersModel[] = [
-    new OrdersModel(1, -1, 1,  '11/10/2019', '11/12/2019', '2330', '1400', 'Jason',  '333-123-1234', 12, 2, 'Dark', true, false, false),
-    new OrdersModel(2, -1, 1,  '11/10/2019', '11/11/2019', '2200', '1600', 'Fran',   '333-123-1234', 2, 4, 'Dark', false, false, true),
-    new OrdersModel(3, -1, 1,  '11/10/2019', '11/15/2019', '0930', '1700', 'Toby',   '333-123-1234', 20, 20, 'Dark', false, true, false),
-    new OrdersModel(4, -1, 1,  '11/10/2019', '11/19/2019', '2330', '1400', 'Daymon', '333-123-1234', 0, 10, 'Dark', true, false, false),
-    new OrdersModel(5, -1, 2,  '11/10/2019', '11/12/2019', '2330', '1400', 'Billy', '333-123-1234', 12, 2, 'Dark', true, false, false),
-    new OrdersModel(6, -1, 2,  '11/10/2019', '11/11/2019', '2200', '1600', 'Ira',   '333-123-1234', 2, 4, 'Dark', false, false, true),
-    new OrdersModel(7, -1, 2,  '11/10/2019', '11/15/2019', '0930', '1700', 'Thomas',   '333-123-1234', 20, 20, 'Dark', false, true, false),
-    new OrdersModel(8, -1, 2,  '11/10/2019', '11/19/2019', '2330', '1400', 'Franklin', '333-123-1234', 0, 10, 'Dark', true, false, false),
-    new OrdersModel(9, -1, 3,  '11/10/2019', '11/12/2019', '2330', '1400', 'Ugene', '333-123-1234', 12, 2, 'Dark', true, false, false),
-    new OrdersModel(10, -1, 3, '11/10/2019', '11/11/2019', '2200', '1600', 'Jan',   '333-123-1234', 2, 4, 'Dark', false, false, true),
-    new OrdersModel(11, -1, 3, '11/10/2019', '11/15/2019', '0930', '1700', 'Barbra',   '333-123-1234', 20, 20, 'Dark', false, true, false),
+    new OrdersModel(1, -1, 1, '11/10/2019', '11/12/2019', '2330', '1400', 'Jason', '333-123-1234', 12, 2, 'Dark', true, false, false),
+    new OrdersModel(2, -1, 1, '11/10/2019', '11/11/2019', '2200', '1600', 'Fran', '333-123-1234', 2, 4, 'Dark', false, false, true),
+    new OrdersModel(3, -1, 1, '11/10/2019', '11/15/2019', '0930', '1700', 'Toby', '333-123-1234', 20, 20, 'Dark', false, true, false),
+    new OrdersModel(4, -1, 1, '11/10/2019', '11/19/2019', '2330', '1400', 'Daymon', '333-123-1234', 0, 10, 'Dark', true, false, false),
+    new OrdersModel(5, -1, 2, '11/10/2019', '11/12/2019', '2330', '1400', 'Billy', '333-123-1234', 12, 2, 'Dark', true, false, false),
+    new OrdersModel(6, -1, 2, '11/10/2019', '11/11/2019', '2200', '1600', 'Ira', '333-123-1234', 2, 4, 'Dark', false, false, true),
+    new OrdersModel(7, -1, 2, '11/10/2019', '11/15/2019', '0930', '1700', 'Thomas', '333-123-1234', 20, 20, 'Dark', false, true, false),
+    new OrdersModel(8, -1, 2, '11/10/2019', '11/19/2019', '2330', '1400', 'Franklin', '333-123-1234', 0, 10, 'Dark', true, false, false),
+    new OrdersModel(9, -1, 3, '11/10/2019', '11/12/2019', '2330', '1400', 'Ugene', '333-123-1234', 12, 2, 'Dark', true, false, false),
+    new OrdersModel(10, -1, 3, '11/10/2019', '11/11/2019', '2200', '1600', 'Jan', '333-123-1234', 2, 4, 'Dark', false, false, true),
+    new OrdersModel(11, -1, 3, '11/10/2019', '11/15/2019', '0930', '1700', 'Barbra', '333-123-1234', 20, 20, 'Dark', false, true, false),
     new OrdersModel(12, -1, 3, '11/10/2019', '11/19/2019', '2330', '1400', 'Cathy', '333-123-1234', 0, 10, 'Dark', true, false, false),
     new OrdersModel(13, -1, 4, '11/10/2019', '11/12/2019', '2330', '1400', 'Tre', '333-123-1234', 12, 2, 'Dark', true, false, false),
-    new OrdersModel(14, -1, 4, '11/10/2019', '11/11/2019', '2200', '1600', 'Olivia',   '333-123-1234', 2, 4, 'Dark', false, false, true),
-    new OrdersModel(15, -1, 4, '11/10/2019', '11/15/2019', '0930', '1700', 'Nathan',   '333-123-1234', 20, 20, 'Dark', false, true, false),
+    new OrdersModel(14, -1, 4, '11/10/2019', '11/11/2019', '2200', '1600', 'Olivia', '333-123-1234', 2, 4, 'Dark', false, false, true),
+    new OrdersModel(15, -1, 4, '11/10/2019', '11/15/2019', '0930', '1700', 'Nathan', '333-123-1234', 20, 20, 'Dark', false, true, false),
     new OrdersModel(16, -1, 4, '11/10/2019', '11/19/2019', '2330', '1400', 'Charles', '333-123-1234', 0, 10, 'Dark', true, false, false),
   ];
 
@@ -87,7 +87,7 @@ export class TempDataServiceService {
     new UserStoreModel(13, 7, 2),
   ];
 
-  constructor(private userService: UserServiceService) { }
+  constructor() { }
 
   getUserByUsernamePassword(username: string, password: string) {
     let user = this.tempUsers.filter(function (x) {
@@ -96,14 +96,13 @@ export class TempDataServiceService {
       }
     });
     if (user.length == 1) {
-      this.userService.currentUser = user[0];
-      return true;
+      return user[0];
     }
-    return false;
+    return null;
   }
 
-  getStoresForUser() {
-    let user = this.getUserByToken();
+  getStoresForUser(token: TokenModel) {
+    let user = this.getUserByToken(token);
     let ust = this.getUserStoresByUserId(user.id);
     let stores: StoreModel[] = [];
     for (let i = 0; i < ust.length; i++) {
@@ -116,13 +115,27 @@ export class TempDataServiceService {
     return stores.slice();
   }
 
-  getUserByToken() {
-    let user: UserModel = this.tempUsers.filter(u => u.id == (this.tempTokes.filter(t => t.token == this.userService.currentUser.token.token)[0].userId))[0];
+  getUserByToken(token: TokenModel) {
+    let user: UserModel = this.tempUsers.filter(u => u.id == (this.tempTokes.filter(t => t == token)[0].userId))[0];
     return user;
   }
 
   getUserStoresByUserId(userId: number) {
     let ust: UserStoreModel[] = this.userStores.filter(us => us.userId == userId);
+    return ust.slice();
+  }
+
+  getStoresByUserId(userId: number) {
+    let ust: UserStoreModel[] = this.getUserStoresByUserId(userId);
+    let storeIds: number[] = [];
+    ust.forEach(u => storeIds.push(u.storeId));
+    let stores: StoreModel[] = [];
+    storeIds.forEach(si => this.stores.forEach(function (s) { if (s.id == si) stores.push(s); }));
+    return stores;
+  }
+
+  getUserStoresIdByStoreId(storeId: number) {
+    let ust: UserStoreModel[] = this.userStores.filter(us => us.storeId == storeId);
     return ust.slice();
   }
 
@@ -133,5 +146,15 @@ export class TempDataServiceService {
 
   updateOrder(order: OrdersModel) {
     console.log(this.orders);
+  }
+
+  getUsersForUser(token: TokenModel) {
+    let users: UserModel[] = this.tempUsers;
+
+    return users;
+  }
+
+  getAddStores() {
+    return this.stores.slice();
   }
 }

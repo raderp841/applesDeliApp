@@ -18,6 +18,7 @@ import { OrderDetailComponent } from './components/dashboard/order-detail/order-
 import { OrderComponent } from './components/dashboard/order/order.component';
 import { UserListComponent } from './components/user/user-list/user-list.component';
 import { UserComponent } from './components/user/user/user.component';
+import { UserEditComponent } from './components/user/user-edit/user-edit.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { UserComponent } from './components/user/user/user.component';
     OrderDetailComponent,
     OrderComponent,
     UserListComponent,
-    UserComponent
+    UserComponent,
+    UserEditComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,40 @@
+<form class="form-group" [formGroup]="userEditForm" (ngSubmit)="onSubmit()">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <label for="firstname">First Name:</label>
+      <input type="text" name="firstname" id="firstname" formControlName="firstname" class="form-control" />
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <label for="lastname">Last Name:</label>
+      <input type="text" name="lastname" id="lastname" formControlName="lastname" class="form-control" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <label for="username">UserName:</label>
+      <input type="text" name="username" id="username" formControlName="username" class="form-control" />
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <label for="securitylevel">Security Level:</label>
+      <input type="number" name="securitylevel" id="securitylevel" formControlName="securitylevel" class="form-control" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <label for="sheffieldlake">Sheffield Lake:</label>
+      <input type="checkbox" name="sheffieldlake" id="sheffieldlake" formControlName="sheffieldlake" class="form-control" />
+    </div>
+  </div>
+  <hr />
+  <div class="row">
+    <div class="col" *ngIf="!isEditMode">
+      <button class="btn btn-primary" (click)="onAllowEdit()">Edit</button>
+    </div>
+    <div class="col" *ngIf="isEditMode">
+      <button class="btn btn-primary" type="submit">Submit</button>
+    </div>
+    <div class="col" *ngIf="isEditMode">
+      <button class="btn btn-danger" (click)="onCancelEdit()">Cancel</button>
+    </div>
+  </div>
+</form>

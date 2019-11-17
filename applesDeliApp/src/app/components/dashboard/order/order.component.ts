@@ -3,6 +3,8 @@ import { OrdersModel } from '../../../models/orders-model';
 import { Subscription } from 'rxjs';
 import { OrderServiceService } from '../../../services/order-service.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { StoreModel } from '../../../models/store-model';
+import { StoreServiceService } from '../../../services/store-service.service';
 
 @Component({
   selector: 'app-order',
@@ -11,15 +13,16 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class OrderComponent implements OnInit, OnDestroy {
   order: OrdersModel = this.orderService.currentOrder;
+  stores: StoreModel[] = [];
   orderSub: Subscription = new Subscription();
   orderForm: FormGroup;
 
-  constructor(private orderService: OrderServiceService) { }
+  constructor(private orderService: OrderServiceService, private storeService: StoreServiceService) { }
 
   ngOnInit() {
     this.orderSub = this.orderService.currentOrderSub
       .subscribe(o => this.order = o);
-    console.log(this.order);
+    this.stores = this.storeService.getAllStores();
 
     this.setUpOrderForm();
   }
@@ -100,6 +103,7 @@ export class OrderComponent implements OnInit, OnDestroy {
     this.order.phoneNumber = this.orderForm.controls['phonenumber'].value;
     this.order.pickupDate = this.orderForm.controls['pickupdate'].value;
     this.order.pickupTime = this.orderForm.controls['pickuptime'].value;
+    this.order.storeId = this.orderForm.controls['storeid'].value;
 
     this.orderService.setOrder(this.order);
     this.disableEdit();

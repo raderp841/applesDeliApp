@@ -1,19 +1,22 @@
 import { Injectable } from '@angular/core';
 import { TempDataServiceService } from './temp-data-service.service';
+import { UserServiceService } from './user-service.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginRegisterServiceService {
 
-  constructor(private tempData: TempDataServiceService) { }
+  constructor(private tempData: TempDataServiceService, private userService: UserServiceService) { }
 
   login(username: string, password: string) {
     //////////////////////////////////////////////////http request here
     //////////////////////////////////////////////////
-    if (this.tempData.getUserByUsernamePassword(username, password)) {
-      return true;
+    let user = this.tempData.getUserByUsernamePassword(username, password);
+    this.userService.currentUser = user;
+    if (user == null) {
+      return false;
     }
-    return false;
+    return true;
   }
 }

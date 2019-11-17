@@ -42,4 +42,11 @@ export class LoginComponent implements OnInit {
       'password': new FormControl('', Validators.required)
     });
   }
+
+  onDateTest() {
+    console.log(Date.now());
+    console.log(new Date('11/14/2019'));
+    console.log(new Date());
+    console.log(Date.now().toString());
+  }
 }

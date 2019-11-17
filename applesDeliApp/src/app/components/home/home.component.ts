@@ -11,10 +11,14 @@ export class HomeComponent implements OnInit, OnDestroy {
   isLoginRegister: boolean = false;
   isDashboard: boolean = false;
   isOrder: boolean = false;
+  isUsers: boolean = false;
+  isUserEdit: boolean = false;
 
   isLoginRegisterSub: Subscription = new Subscription();
   isDashboardSub: Subscription = new Subscription();
   isOrderSub: Subscription = new Subscription();
+  isUsersSub: Subscription = new Subscription();
+  isUserEditSub: Subscription = new Subscription();
 
   constructor(private routingService: RoutingServiceService) { }
 
@@ -26,12 +30,18 @@ export class HomeComponent implements OnInit, OnDestroy {
       .subscribe(x => this.isDashboard = x);
     this.isOrderSub = this.routingService.isOrderSub
       .subscribe(x => this.isOrder = x);
+    this.isUsersSub = this.routingService.isUsersSub
+      .subscribe(x => this.isUsers = x);
+    this.isUserEditSub = this.routingService.isUserEditSub
+      .subscribe(x => this.isUserEdit = x);
   }
 
   ngOnDestroy() {
     this.isLoginRegisterSub.unsubscribe();
     this.isDashboardSub.unsubscribe();
     this.isOrderSub.unsubscribe();
+    this.isUsersSub.unsubscribe();
+    this.isUserEditSub.unsubscribe();
   }
 
 }

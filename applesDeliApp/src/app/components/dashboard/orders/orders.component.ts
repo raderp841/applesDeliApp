@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { OrdersModel } from '../../../models/orders-model';
 import { Subscription } from 'rxjs';
 import { OrderServiceService } from '../../../services/order-service.service';
+import { StoreModel } from '../../../models/store-model';
 
 @Component({
   selector: 'app-orders',
@@ -10,6 +11,7 @@ import { OrderServiceService } from '../../../services/order-service.service';
 })
 export class OrdersComponent implements OnInit, OnDestroy {
   orders: OrdersModel[] = [];
+  stores: StoreModel[] = [];
   ordersSub: Subscription = new Subscription();
 
   constructor(private ordersService: OrderServiceService) { }

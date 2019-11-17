@@ -59,6 +59,14 @@
       <input type="checkbox" name="iscompleted" id="iscompleted" class="form-control" formControlName="iscompleted" />
     </div>
   </div>
+  <div class="row">
+    <div class="col-md-6 col-xs-12 col-sm-6" >
+      <label for="storeid">Store:</label>
+      <select class="form-control" formControlName="storeid" name="storeid" id="storeid">
+        <option *ngFor="let store of stores"value="{{store.id}}">{{store.name}}</option>
+      </select>
+    </div>
+  </div>
   <hr />
   <div class="row">
     <div class="col" *ngIf="orderForm.disabled">

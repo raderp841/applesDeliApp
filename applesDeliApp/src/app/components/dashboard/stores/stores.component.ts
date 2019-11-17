@@ -15,12 +15,12 @@ export class StoresComponent implements OnInit, OnDestroy {
   stores: StoreModel[] = [];
   storesSub: Subscription = new Subscription();
 
-  constructor(private storeService: StoreServiceService, private ordersService: OrderServiceService) { }
+  constructor(private storeService: StoreServiceService, private ordersService: OrderServiceService, private usersService: UserServiceService) { }
 
   ngOnInit() {
     this.storesSub = this.storeService.StoresSub
       .subscribe(s => this.stores = s);
-    this.storeService.getStoresByToken();
+    this.storeService.getStoresByToken(this.usersService.currentUser.token);
   }
 
   onClickStore(store: StoreModel) {

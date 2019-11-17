@@ -25,7 +25,16 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   switchToOrders() {
     if (this.checkLoginStatus()) {
-      this.routingService.switchToOrder()
+      this.routingService.switchToOrder();
+    }
+    else {
+      this.routingService.switchToLogin();
+    }
+  }
+
+  switchToUsers() {
+    if (this.checkLoginStatus()) {
+      this.routingService.switchToUsers();
     }
     else {
       this.routingService.switchToLogin();
