@@ -3,53 +3,65 @@ import { RoutingServiceService } from '../../services/routing-service.service';
 import { UserServiceService } from '../../services/user-service.service';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+    selector: 'app-header',
+    templateUrl: './header.component.html',
+    styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit, OnDestroy {
 
-  constructor(private routingService: RoutingServiceService, private userService: UserServiceService) { }
+    constructor(private routingService: RoutingServiceService, private userService: UserServiceService) { }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
-  switchToDashboard() {
-    if (this.checkLoginStatus()) {
-      this.routingService.switchToDashboard();
+    switchToDashboard() {
+        if (this.checkLoginStatus()) {
+            this.routingService.switchToDashboard();
+        }
+        else {
+            this.routingService.switchToLogin();
+        }
     }
-    else {
-      this.routingService.switchToLogin();
-    }
-  }
 
-  switchToOrders() {
-    if (this.checkLoginStatus()) {
-      this.routingService.switchToOrder();
+    switchToOrders() {
+        if (this.checkLoginStatus()) {
+            this.routingService.switchToOrder();
+        }
+        else {
+            this.routingService.switchToLogin();
+        }
     }
-    else {
-      this.routingService.switchToLogin();
-    }
-  }
 
-  switchToUsers() {
-    if (this.checkLoginStatus()) {
-      this.routingService.switchToUsers();
+    switchToUsers() {
+        if (this.checkLoginStatus()) {
+            this.routingService.switchToUsers();
+        }
+        else {
+            this.routingService.switchToLogin();
+        }
     }
-    else {
-      this.routingService.switchToLogin();
+
+    checkLoginStatus() {
+        if (this.userService.currentUser != null) {
+            return true;
+        }
+        return false;
     }
-  }
 
-  checkLoginStatus() {
-    if (this.userService.currentUser != null) {
-      return true;
+    logout() {
+        localStorage.clear();
+        location.reload();
+        this.routingService.switchToLogin();
+
     }
-    return false;
-  }
 
-  ngOnDestroy() {
+    login() {
+        this.routingService.switchToLogin();
+    }
+    
 
-  }
+    ngOnDestroy() {
+
+    }
 
 }

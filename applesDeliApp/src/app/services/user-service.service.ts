@@ -3,6 +3,7 @@ import { UserModel } from '../models/user-model';
 import { TokenServiceService } from './token-service.service';
 import { Subject } from 'rxjs';
 import { RoutingServiceService } from './routing-service.service';
+import { UserEditModel } from '../models/user-edit-model';
 
 @Injectable({
   providedIn: 'root'
@@ -29,5 +30,10 @@ export class UserServiceService {
     this.editUser = user;
     this.editUserSub.next(this.editUser);
     this.routingService.switchToUserEdit();
+  }
+
+  userEdit(userEditModel: UserEditModel) {
+    this.editUser = this.tokenService.editUser(this.currentUser.token, userEditModel);
+    this.editUserSub.next(this.editUser);
   }
 }

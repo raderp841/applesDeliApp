@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { UserServiceService } from './user-service.service';
 import { TempDataServiceService } from './temp-data-service.service';
 import { TokenModel } from '../models/token-model';
+import { UserEditModel } from '../models/user-edit-model';
 
 
 @Injectable({
@@ -17,13 +18,15 @@ export class TokenServiceService {
     return this.tempDataService.getUsersForUser(token);
   }
 
+  editUser(token: TokenModel, userEditModel: UserEditModel) {
+    this.validateToken(token);
+    return this.tempDataService.updateUser(userEditModel);
+  }
+
   private validateToken(token: TokenModel) {
     if (token == null || token.dateExpired <= new Date()) {
-      console.log('token failed to validate');
-      console.log(token);
       return false;
     }
-    console.log('token validated');
     return true;
   }
 }

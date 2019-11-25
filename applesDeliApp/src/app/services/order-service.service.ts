@@ -5,31 +5,35 @@ import { Subject } from 'rxjs';
 import { RoutingServiceService } from './routing-service.service';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class OrderServiceService {
 
-  orders: OrdersModel[] = [];
-  ordersSub: Subject<OrdersModel[]> = new Subject<OrdersModel[]>();
-  currentOrder: OrdersModel;
-  currentOrderSub: Subject<OrdersModel> = new Subject<OrdersModel>();
+    orders: OrdersModel[] = [];
+    ordersSub: Subject<OrdersModel[]> = new Subject<OrdersModel[]>();
+    currentOrder: OrdersModel;
+    currentOrderSub: Subject<OrdersModel> = new Subject<OrdersModel>();
 
-  constructor(private tempDataService: TempDataServiceService, private routingService: RoutingServiceService) { }
+    constructor(private tempDataService: TempDataServiceService, private routingService: RoutingServiceService) { }
 
-  getOrdersForStore(storeId: number) {
-    this.orders = this.tempDataService.getOrdersForStore(storeId).slice();
-    this.ordersSub.next(this.orders.slice());
-  }
+    getOrdersForStore(storeId: number) {
+        this.orders = this.tempDataService.getOrdersForStore(storeId).slice();
+        this.ordersSub.next(this.orders.slice());
+    }
 
-  switchToOrderDetail(order: OrdersModel) {
-    this.currentOrder = order;
-    this.routingService.switchToOrder();
-    this.currentOrderSub.next(this.currentOrder);
-  }
+    switchToOrderDetail(order: OrdersModel) {
+        this.currentOrder = order;
+        this.routingService.switchToOrder();
+        this.currentOrderSub.next(this.currentOrder);
+    }
 
-  setOrder(order: OrdersModel) {
-    this.currentOrder = order;
-    this.currentOrderSub.next(this.currentOrder);
-    this.tempDataService.updateOrder(order);
-  }
+    setOrder(order: OrdersModel) {
+        this.currentOrder = order;
+        this.currentOrderSub.next(this.currentOrder);
+        this.tempDataService.updateOrder(order);
+    }
+
+    saveNewOrder(order: OrdersModel) {
+        return this.tempDataService.saveNewOrder(order);
+    }
 }

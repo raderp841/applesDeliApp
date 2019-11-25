@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { Location } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/user/login/login.component';
@@ -19,32 +20,35 @@ import { OrderComponent } from './components/dashboard/order/order.component';
 import { UserListComponent } from './components/user/user-list/user-list.component';
 import { UserComponent } from './components/user/user/user.component';
 import { UserEditComponent } from './components/user/user-edit/user-edit.component';
+import { NewOrderComponent } from './components/dashboard/new-order/new-order.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    RegisterComponent,
-    HeaderComponent,
-    LoginRegisterComponent,
-    HomeComponent,
-    StoresComponent,
-    OrdersComponent,
-    OrderFormComponent,
-    DashboardComponent,
-    OrderDetailComponent,
-    OrderComponent,
-    UserListComponent,
-    UserComponent,
-    UserEditComponent
-  ],
-  imports: [
-    BrowserModule,
-    ReactiveFormsModule,
-    FormsModule,
-    RouterModule.forRoot([])
-  ],
-  providers: [Location],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        LoginComponent,
+        RegisterComponent,
+        HeaderComponent,
+        LoginRegisterComponent,
+        HomeComponent,
+        StoresComponent,
+        OrdersComponent,
+        OrderFormComponent,
+        DashboardComponent,
+        OrderDetailComponent,
+        OrderComponent,
+        UserListComponent,
+        UserComponent,
+        UserEditComponent,
+        NewOrderComponent
+    ],
+    imports: [
+        BrowserModule,
+        ReactiveFormsModule,
+        FormsModule,
+        HttpClientModule,
+        RouterModule.forRoot([])
+    ],
+    providers: [Location],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

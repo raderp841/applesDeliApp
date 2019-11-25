@@ -1,9 +1,10 @@
+
 export class OrdersModel {
   id: number;
   userId: number;
   storeId: number;
-  orderedDate: string;
-  pickupDate: string;
+  orderedDate: Date;
+  pickupDate: Date;
   orderedTime: string;
   pickupTime: string;
   nameForPickup: string;
@@ -15,7 +16,21 @@ export class OrdersModel {
   isCancelled: boolean;
   isCompleted: boolean;
 
-  constructor(id: number, userId: number, storeId: number, orderedDate: string, pickupDate: string, orderedTime: string, pickupTime: string, nameForPickup: string, phoneNumber: string, chickenPcs: number, jojoPcs: number, details: string, isActive: boolean, isCancelled: boolean, isCompleted: boolean) {
+    constructor(id: number,
+        userId: number,
+        storeId: number,
+        orderedDate: Date,
+        pickupDate: Date,
+        orderedTime: string,
+        pickupTime: string,
+        nameForPickup: string,
+        phoneNumber: string,
+        chickenPcs: number,
+        jojoPcs: number,
+        details: string,
+        isActive: boolean,
+        isCancelled: boolean,
+        isCompleted: boolean) {
     this.id = id;
     this.userId = userId;
     this.storeId = storeId;

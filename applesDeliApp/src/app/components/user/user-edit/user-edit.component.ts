@@ -6,6 +6,9 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { StoreServiceService } from '../../../services/store-service.service';
 import { StoreModel } from '../../../models/store-model';
 import { format } from 'util';
+import { element } from 'protractor';
+import { UserStoreModel } from '../../../models/user-store-model';
+import { UserEditModel } from '../../../models/user-edit-model';
 
 @Component({
   selector: 'app-user-edit',
@@ -47,11 +50,31 @@ export class UserEditComponent implements OnInit, OnDestroy {
       'username': new FormControl(this.user.userName, [Validators.required]),
       'securitylevel': new FormControl(this.user.securityLevel, [Validators.required]),
       'sheffieldlake': new FormControl(this.stores.some(s => s.id == 1)),
+      'elyria': new FormControl(this.stores.some(s => s.id == 2)),
+      'lorain': new FormControl(this.stores.some(s => s.id == 3)),
+      'villagemarket': new FormControl(this.stores.some(s => s.id == 4)),
     });
   }
 
   onSubmit() {
-    console.log(this.userEditForm);
+    let ust: UserStoreModel[] = [];
+    
+    if (this.userEditForm.controls['sheffieldlake'].value == true) {
+      ust.push(new UserStoreModel(-1, this.user.id, 1));
+    }
+    if (this.userEditForm.controls['elyria'].value) {
+      ust.push(new UserStoreModel(-1, this.user.id, 2));
+    }
+    if (this.userEditForm.controls['lorain'].value) {
+      ust.push(new UserStoreModel(-1, this.user.id, 3));
+    }
+    if (this.userEditForm.controls['villagemarket'].value) {
+      ust.push(new UserStoreModel(-1, this.user.id, 4));
+    }
+    this.setUserFromForm();
+    let userEditModel: UserEditModel = new UserEditModel(this.user, ust);
+    this.userService.userEdit(userEditModel);
+    this.storesService.getStoresForUserEdit(this.user.id);
   }
 
   onAllowEdit() {
@@ -72,8 +95,16 @@ export class UserEditComponent implements OnInit, OnDestroy {
     setTimeout(() => this.userEditForm.enable(), 0);
   }
 
+  setUserFromForm() {
+    this.user.firstName = this.userEditForm.controls['firstname'].value;
+    this.user.lastName = this.userEditForm.controls['lastname'].value;
+    this.user.securityLevel = this.userEditForm.controls['securitylevel'].value;
+    this.user.userName = this.userEditForm.controls['username'].value;
+  }
+
   ngOnDestroy() {
     this.userSub.unsubscribe();
+    this.storesSub.unsubscribe();
   }
 
 }

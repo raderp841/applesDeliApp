@@ -1,18 +1,23 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Pickup Name</th>
-      <th scope="col">Pickup Date</th>
-      <th scope="col">Pickup Time</th>
-      <th scope="col">Ordered Date</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let order of orders" (click)="onOrderClicked(order)">
-      <th scope="row">{{order.nameForPickup}}</th>
-      <td>{{order.pickupDate}}</td>
-      <td>{{order.pickupTime}}</td>
-      <td>{{order.orderedDate}}</td>
-    </tr>
-  </tbody>
-</table>
+<div >
+  <div class="form-group">
+    <input type="text" id="search" placeholder="Search..." class="form-control" (keyup)="onSearchKey($event)"/>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Pickup Name</th>
+        <th scope="col">Pickup Date</th>
+        <th scope="col">Pickup Time</th>
+        <th scope="col">Ordered Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orders" (click)="onOrderClicked(order)" [ngClass]="order.isActive ? 'active' : 'inactive'">
+        <th scope="row">{{order.nameForPickup}}</th>
+        <td>{{order.pickupDate | date: 'shortDate'}}</td>
+        <td>{{order.pickupTime}}</td>
+        <td>{{order.orderedDate | date: 'shortDate'}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
